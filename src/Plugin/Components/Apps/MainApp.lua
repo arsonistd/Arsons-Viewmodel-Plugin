@@ -1,4 +1,4 @@
--- GenerateApp.lua
+-- MainApp.lua
 -- ArsonistD
 -- Started : 12/09/2021
 -- Last Edit : 12/09/2021
@@ -6,17 +6,17 @@
 local framework = require(script.Parent.Parent.Parent.ArsonsPluginFramework)
 local Roact = require(script.Parent.Parent.Parent.Packages.Roact)
 
-GenerateApp = Roact.Component:extend(
-    "GenerateApp"
+MainApp = Roact.Component:extend(
+    "MainApp"
 )
 
-function GenerateApp:init()
-    self.Bar = framework.GetComponent("GenerateWidgetButtonBar")
-    self.Page = framework.GetComponent("GenerateWidgetPage")
+function MainApp:init()
+    self.Bar = framework.GetComponent("MainWidgetButtonBar")
+    self.Page = framework.GetComponent("MainWidgetPage")
 
 end
 
-function GenerateApp:render()
+function MainApp:render()
     return Roact.createFragment({
 		WidgetBar = Roact.createElement(self.Bar, {
 			ButtonSize = 1/5;
@@ -27,4 +27,4 @@ function GenerateApp:render()
     })
 end
 
-return GenerateApp
+return MainApp
