@@ -1,17 +1,16 @@
-
--- GenerateWidgetPage.lua
+-- MainWidgetPage.lua
 -- ArsonistD
 -- Started : 12/09/2021
--- Last Edit : 12/09/2021
+-- Last Edit : 2/11/2021
 
 local framework = require(script.Parent.Parent.Parent.ArsonsPluginFramework)
 local Roact = require(script.Parent.Parent.Parent.Packages.Roact)
 
-GenerateWidgetPage = Roact.Component:extend(
-    "GenerateWidgetPage"
+MainWidgetPage = Roact.Component:extend(
+    "MainWidgetPage"
 )
 
-function GenerateWidgetPage:init()
+function MainWidgetPage:init()
     self:setState({
         currentPage = "Generate";
         contentSizeY = 0;
@@ -26,10 +25,10 @@ function GenerateWidgetPage:init()
     self.listLayoutRef = Roact.createRef()
 
     self.theme = framework.GetModule("Theme")
-    self.widget = framework.GetModule("GeneratorWidget")
+    self.widget = framework.GetModule("MainWidget")
 end
 
-function GenerateWidgetPage:render()
+function MainWidgetPage:render()
     local ContentSizeY = self.state.contentSizeY
 
     local Page = self.generatePage
@@ -73,7 +72,7 @@ function GenerateWidgetPage:render()
     })
 end
 
-function GenerateWidgetPage:didMount()
+function MainWidgetPage:didMount()
     self.widget.UpdateScrollingFrame:Connect(function(contentSize)
         self:setState(function(state)
             return {
@@ -93,8 +92,8 @@ function GenerateWidgetPage:didMount()
     end)
 end
 
-function GenerateWidgetPage:willUnmount()
+function MainWidgetPage:willUnmount()
     
 end
 
-return GenerateWidgetPage
+return MainWidgetPage
