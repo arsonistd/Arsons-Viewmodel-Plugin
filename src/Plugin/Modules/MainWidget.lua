@@ -1,4 +1,4 @@
--- GeneratorWidget.lua
+-- MainWidget.lua
 -- ArsonistD
 -- Started : 12/07/2021
 -- Last Edit : 12/25/2021
@@ -8,28 +8,27 @@ local verson = require(script.Parent.Parent.Verison)
 local Roact = require(script.Parent.Parent.Packages.Roact)
 local Signal = require(script.Parent.Parent.Packages.Signal)
 
-local GeneratorWidget = framework.CreateModule("GeneratorWidget")
+local MainWidget = framework.CreateModule("MainWidget")
 
-GeneratorWidget.WidgetButtonPressed = Signal.new()
-GeneratorWidget.UpdateScrollingFrame = Signal.new()
+MainWidget.WidgetButtonPressed = Signal.new()
+MainWidget.UpdateScrollingFrame = Signal.new()
 
-function GeneratorWidget:Init()
+function MainWidget:Init()
 	local toolbar = framework.GetModule("Toolbar")
 	local button = toolbar.generateButton
 
-
-    local widgetInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 200, 300, 320, 150)
+	local widgetInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 200, 300, 320, 150)
 	button.ClickableWhenViewportHidden = true
 	button.Click:Connect(function() self.Widget.Enabled = not self.Widget.Enabled end)
 
 	self.Widget = framework.plugin:CreateDockWidgetPluginGui("Generator", widgetInfo)
-	self.Widget.Title = "LandscapeX Generator "..verson
+	self.Widget.Title = "Arson's Viewmodel Plugin "..verson
 	self.Widget:GetPropertyChangedSignal("Enabled"):Connect(function() if self.Widget.Enabled then button:SetActive(true) else button:SetActive(false) end end)
 
-	local GenerateApp = framework.GetComponent("GenerateApp")
+	local MainApp = framework.GetComponent("MainApp")
 
-	Roact.mount(Roact.createElement(GenerateApp), self.Widget)
+	Roact.mount(Roact.createElement(MainApp), self.Widget)
 end
 
 
-return GeneratorWidget
+return MainWidget
