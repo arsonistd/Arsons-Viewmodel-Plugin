@@ -1,4 +1,4 @@
--- GeneratePage.lua
+-- CreatePage.lua
 -- ArsonistD
 -- Started : 12/09/2021
 -- Last Edit : 12/09/2021
@@ -6,11 +6,11 @@
 local framework = require(script.Parent.Parent.Parent.ArsonsPluginFramework)
 local Roact = require(script.Parent.Parent.Parent.Packages.Roact)
 
-GeneratePage = Roact.Component:extend(
-    "GeneratePage"
+CreatePage = Roact.Component:extend(
+    "CreatePage"
 )
 
-function GeneratePage:init()
+function CreatePage:init()
     self.Generate = framework.GetModule("Generate")
 
     self.Group = framework.GetComponent("Group")
@@ -19,7 +19,7 @@ function GeneratePage:init()
     self.NumberBox = framework.GetComponent("NumberBox")
 end
 
-function GeneratePage:render()
+function CreatePage:render()
 
     local InfiniteTerrainLocked
     if self.Generate.Settings.InfiniteTerrain then
@@ -170,11 +170,11 @@ function GeneratePage:render()
     })
 end
 
-function GeneratePage:didMount()
+function CreatePage:didMount()
     
 end
 
-function GeneratePage:willUnmount()
+function CreatePage:willUnmount()
     
 end
 
