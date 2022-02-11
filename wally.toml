@@ -1,0 +1,19 @@
+[package]
+name = "arsonistd/arsonist-framework"
+description = "Arsonist framework"
+license = "MIT OR Apache-2.0"
+authors = ["ArsonistD"]
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[place]
+shared-packages = "game.ServerStorage.Arsons-Terrain-Plugin"
+
+[dependencies]
+Janitor = "howmanysmall/janitor@1.13.14"
+Roact = "roblox/roact@1.4.2"
+RoactFlipper = "reselim/roact-flipper@1.1.0"
+RoactRouter = "reselim/roact-router@1.0.0"
+RoactHooks = "kampfkarren/roact-hooks@0.3.0"
+Signal = "sleitnick/signal@1.0.1"

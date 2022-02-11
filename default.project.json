@@ -1,0 +1,17 @@
+{
+  "name": "ARSONS-VIEWMODEL-PLUGIN",
+  "tree": {
+    "$className": "DataModel",
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "Arsons-Terrain-Plugin":{
+        "$className": "Model",
+        "$path": "src/Plugin",
+        "Packages": {
+          "$className": "Folder",
+          "$path": "Packages/"
+        }
+      }
+    }
+  }
+}
