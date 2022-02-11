@@ -1,26 +1,26 @@
--- GenerateWidgetButtonBar.lua
+-- MainWidgetButtonBar.lua
 -- ArsonistD
 -- Started : 12/07/2021
--- Last Edit : 12/07/2021
+-- Last Edit : 2/11/2021
 
 local framework = require(script.Parent.Parent.Parent.ArsonsPluginFramework)
 local Roact = require(script.Parent.Parent.Parent.Packages.Roact)
 
-GenerateWidgetButtonBar = Roact.Component:extend(
-    "GenerateWidgetButtonBar"
+MainWidgetButtonBar = Roact.Component:extend(
+    "MainWidgetButtonBar"
 )
 
-function GenerateWidgetButtonBar:init()
+function MainWidgetButtonBar:init()
     self:setState({currentPage = "Generate"})
-    self.Button = framework.GetComponent("GenerateWidgetButton")
-    self.Page = framework.GetComponent("GenerateWidgetPage")
+    self.Button = framework.GetComponent("MainWidgetButton")
+    self.Page = framework.GetComponent("MainWidgetPage")
 
 
     self.theme = framework.GetModule("Theme")
-    self.widget = framework.GetModule("GeneratorWidget")
+    self.widget = framework.GetModule("MainWidget")
 end
 
-function GenerateWidgetButtonBar:render()
+function MainWidgetButtonBar:render()
     local ButtonSize = self.props.ButtonSize
 
     local GenerateActive = false
@@ -108,7 +108,7 @@ function GenerateWidgetButtonBar:render()
     })
 end
 
-function GenerateWidgetButtonBar:didMount()
+function MainWidgetButtonBar:didMount()
     self.widget.WidgetButtonPressed:Connect(function(page)
         if page == self.state.currentPage then return end
         self:setState(function(state)
@@ -119,8 +119,8 @@ function GenerateWidgetButtonBar:didMount()
     end)
 end
 
-function GenerateWidgetButtonBar:willUnmount()
+function MainWidgetButtonBar:willUnmount()
     
 end
 
-return GenerateWidgetButtonBar 
+return MainWidgetButtonBar 
