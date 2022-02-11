@@ -13,16 +13,16 @@ local VisualizerWidget = framework.CreateModule("VisualizerWidget")
 VisualizerWidget.WidgetButtonPressed = Signal.new()
 
 function VisualizerWidget:Init()
-    local toolbar = framework.GetModule("Toolbar")
+	local toolbar = framework.GetModule("Toolbar")
 	local button = toolbar.visualizeButton
 
 
-    local widgetInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 200, 300, 320, 150)
+	local widgetInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 200, 300, 320, 150)
 	button.ClickableWhenViewportHidden = true
 	button.Click:Connect(function() self.Widget.Enabled = not self.Widget.Enabled end)
 
-	self.Widget = framework.plugin:CreateDockWidgetPluginGui("Visualizer", widgetInfo)
-	self.Widget.Title = "LandscapeX Visualizer "..verson
+	self.Widget = framework.plugin:CreateDockWidgetPluginGui("Viewmodels", widgetInfo)
+	self.Widget.Title = "Arson's Viewmodel Plugin "..verson
 	self.Widget:GetPropertyChangedSignal("Enabled"):Connect(function() if self.Widget.Enabled then button:SetActive(true) else button:SetActive(false) end end)
 
 	local VisualizeApp = framework.GetComponent("VisualizeApp")
