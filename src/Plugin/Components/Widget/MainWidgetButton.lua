@@ -1,21 +1,21 @@
--- GenerateWidgetButton.lua
+-- MainWidgetButton.lua
 -- ArsonistD
 -- Started : 12/08/2021
--- Last Edit : 12/25/2021
+-- Last Edit : 2/11/2021
 
 local framework = require(script.Parent.Parent.Parent.ArsonsPluginFramework)
 local Roact = require(script.Parent.Parent.Parent.Packages.Roact)
 
-GenerateWidgetButton = Roact.Component:extend(
-    "GenerateWidgetButton"
+MainWidgetButton = Roact.Component:extend(
+    "MainWidgetButton"
 )
 
-function GenerateWidgetButton:init()
+function MainWidgetButton:init()
     self.theme = framework.GetModule("Theme")
-    self.widget = framework.GetModule("GeneratorWidget")
+    self.widget = framework.GetModule("MainWidget")
 end
 
-function GenerateWidgetButton:render()
+function MainWidgetButton:render()
     local selected = self.props.Selected
     local page = self.props.Page
     local size = self.props.Size
@@ -71,11 +71,11 @@ function GenerateWidgetButton:render()
     })
 end
 
-function GenerateWidgetButton:didMount()
+function MainWidgetButton:didMount()
     
 end
 
-function GenerateWidgetButton:willUnmount()
+function MainWidgetButton:willUnmount()
     
 end
 
